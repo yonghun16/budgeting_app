@@ -6,17 +6,17 @@ import Report from './components/Report'
 
 function App() {
 
-  const [item, setItem] = useState([
-			// {
-			//id: "",
-			//title: "",
-			//amount: 0,
-			//   type: "",
-			//date: new Date().toISOString().split('T')[0],
-			//   memo: "",
-			//   rePurchase: false
-			// }
-  ]);
+  /* ------- State ------- */
+  const [item, setItem] = useState([]);
+  const [filteredType, setFilteredType] = useState('식료품');
+
+  const filterChangeHandler = (selectedType) => {
+    setFilteredType(selectedType);
+  };
+
+  const filteredItem = item.filter((item) => {
+    return item.type === filteredType;
+  });
 
 	const getPaymentFormData = (data) => {
 		setItem([
@@ -32,12 +32,20 @@ function App() {
       ...item
 		]);
 	};
+  
+  const noItem = [
+    {
+			id: Math.random().toString(),
+      title: "조회된 값이 없습니다."
+    }]
 
   return (
     <>
 			<PaymentForm getPaymentFormData={getPaymentFormData} />
-      <Filter />
-      <Report item={item}/>
+      <Filter typeSelected={filteredType} onChangeFilter={filterChangeHandler} />
+      <Report 
+        item={filteredItem.length > 0 ? filteredItem : noItem} 
+      />
     </>
   )
 }

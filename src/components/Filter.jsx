@@ -1,10 +1,20 @@
 import React from 'react'
 import './css/Filter.css'
 
-const Filter = () => {
+const Filter = (props) => {
+
+  const dropdownChangeHandler = (event) => {
+    props.onChangeFilter(event.target.value);
+  };
+
+
   return (
     <div className='filter'>
-      <select id="filter__typeSelect">
+      <select 
+        id="filter__typeSelect"
+        value={props.typeSelected}
+        onChange={dropdownChangeHandler}
+      >
         <option value='식료품'>식료품</option>
         <option value='통신비'>통신비</option>
         <option value='전기료'>전기료</option>
