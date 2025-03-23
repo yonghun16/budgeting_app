@@ -1,0 +1,10 @@
+.report {
+  width: 550px;
+  height: 350px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}

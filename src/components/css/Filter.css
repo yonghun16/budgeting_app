@@ -1,0 +1,18 @@
+.filter {
+  width: 550px;
+  height: 30px;
+  margin: 30px auto;
+}
+
+.filter__type {
+  width: 250px;
+}
+
+select {
+  height: 23px;
+}
+
+select,
+input {
+  margin-right: 20px;
+}
