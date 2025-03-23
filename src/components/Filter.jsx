@@ -4,7 +4,11 @@ import './css/Filter.css'
 const Filter = (props) => {
 
   const dropdownChangeHandler = (event) => {
-    props.onChangeFilter(event.target.value);
+    props.onChangeTypeFilter(event.target.value);
+  };
+
+  const dropdownChangeSortHandler = (event) => {
+    props.onChangeSortFilter(event.target.value);
   };
 
 
@@ -25,7 +29,11 @@ const Filter = (props) => {
         <option value='기타'>기타</option>
       </select>
 
-      <select id="filter__sortSelect ">
+      <select 
+        id="filter__sortSelect"
+        value={props.sortSelected}
+        onChange={dropdownChangeSortHandler}
+      >
         <option value='가격 높은 순'>가격 높은 순</option>
         <option value='가격 낮은 순'>가격 낮은 순</option>
         <option value='최신 순'>최신 순</option>

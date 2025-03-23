@@ -3,14 +3,15 @@ import './css/Report.css'
 
 const Report = ({item}) => {
   return (
+    console.log(item),
     <div className='report'>
-      <ol>
+      <ul>
         {item.map((item) => (
           <li key={item.id}>
             <span>{item.title}</span>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   )
 }
