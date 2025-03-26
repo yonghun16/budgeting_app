@@ -11,7 +11,6 @@ const Filter = (props) => {
     props.onChangeSortFilter(event.target.value);
   };
 
-
   return (
     <div className='filter'>
       <select 
